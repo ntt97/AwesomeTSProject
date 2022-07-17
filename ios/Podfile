@@ -2,9 +2,10 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 platform :ios, '12.4'
+
 install! 'cocoapods', :deterministic_uuids => false
 
-target 'AwesomeTSProject' do
+def shared_pods
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -18,11 +19,7 @@ target 'AwesomeTSProject' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
-  target 'AwesomeTSProjectTests' do
-    inherit! :complete
-    # Pods for testing
-  end
+end 
 
   # Enables Flipper.
   #
@@ -34,4 +31,19 @@ target 'AwesomeTSProject' do
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
+
+target 'Production' do
+  shared_pods
 end
+
+target 'Development' do
+  shared_pods
+end
+
+target 'Staging' do
+  shared_pods
+end
+
+project 'AwesomeTSProject',
+    'Debug' => :debug,
+    'Release' => :release
