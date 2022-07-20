@@ -1,16 +1,16 @@
 import React from 'react';
-import {Image, View, TouchableOpacity, Text} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { Image, View, TouchableOpacity, Text } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import {MainFlowScreens, BottomTab} from './initScreen';
+import { MainFlowScreens, BottomTab } from './initScreen';
 import styles from './styles';
 
 const Stack = createNativeStackNavigator();
 
 const Tab = createBottomTabNavigator();
 
-const MyTabBar = ({state, descriptors, navigation}: any) => {
+const MyTabBar = ({ state, descriptors, navigation }: any) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
 
   if (focusedOptions.tabBarVisible === false) {
@@ -18,9 +18,9 @@ const MyTabBar = ({state, descriptors, navigation}: any) => {
   }
 
   return (
-    <View style={{flexDirection: 'row'}}>
+    <View style={{ flexDirection: 'row' }}>
       {state.routes.map((route: any, index: any) => {
-        const {options} = descriptors[route.key];
+        const { options } = descriptors[route.key];
 
         const label =
           options.tabBarLabel !== undefined
@@ -45,7 +45,7 @@ const MyTabBar = ({state, descriptors, navigation}: any) => {
 
         return (
           <TouchableOpacity
-            accessibilityState={isFocused ? {selected: true} : {}}
+            accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
             onPress={onPress}
@@ -53,7 +53,7 @@ const MyTabBar = ({state, descriptors, navigation}: any) => {
               isFocused ? styles.containerActive : styles.containerInactive
             }>
             <Image source={route.params.iconTab} style={styles.iconImage} />
-            <Text style={{color: route.params.colorTitle, paddingTop: 10}}>
+            <Text style={{ color: route.params.colorTitle, paddingTop: 10 }}>
               {label}
             </Text>
           </TouchableOpacity>
@@ -66,12 +66,12 @@ const MyTabBar = ({state, descriptors, navigation}: any) => {
 const tabStackScreen = () => {
   return (
     <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
-      {BottomTab.map(({title, component, iconTab, colorTitle}) => (
+      {BottomTab.map(({ title, component, iconTab, colorTitle }) => (
         <Tab.Screen
           key={title}
           name={title}
           component={component}
-          initialParams={{iconTab, colorTitle}}
+          initialParams={{ iconTab, colorTitle }}
         />
       ))}
     </Tab.Navigator>
@@ -80,7 +80,7 @@ const tabStackScreen = () => {
 
 const MainNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{gestureEnabled: false}}>
+    <Stack.Navigator screenOptions={{ gestureEnabled: false }}>
       <Stack.Screen name={'mainBottomTab'} component={tabStackScreen} />
       {Object.entries(MainFlowScreens).map(([name, component]) => (
         <Stack.Screen key={name} name={name} component={component} />
