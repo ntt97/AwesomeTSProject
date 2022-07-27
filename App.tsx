@@ -3,6 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 import MainNavigator from '@navigation/mainNav';
+import { reduxProvider } from '@store/configureStore';
 
 const App = () => {
   return (
@@ -12,4 +13,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default reduxProvider(App);
