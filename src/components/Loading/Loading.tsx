@@ -1,8 +1,8 @@
-import {View, ActivityIndicator} from 'react-native';
 import React from 'react';
+import { View, ActivityIndicator } from 'react-native';
 
-import {styles} from './LoadingStyles';
-import Colors from '../../constants/colors';
+import Colors from '@constants/colors';
+import { styles } from './LoadingStyles';
 
 const LoadingScreen = () => {
   return (

@@ -1,6 +1,6 @@
-import {LOADING_SCREEN, ALERT_POPUP} from '../constants/screenKeys';
-import {Keyboard} from 'react-native';
-import {StackActions} from '@react-navigation/native';
+import { LOADING_SCREEN, ALERT_POPUP } from '../constants/screenKeys';
+import { Keyboard } from 'react-native';
+import { StackActions } from '@react-navigation/native';
 
 class NavigationActionsService {
   private static stackNavigation: any[] = [];
@@ -15,20 +15,16 @@ class NavigationActionsService {
     return NavigationActionsService.instance;
   }
 
-  public static openDrawer = () =>
-    NavigationActionsService.navigation.openDrawer();
+  public static openDrawer = () => NavigationActionsService.navigation.openDrawer();
 
-  public static closeDrawer = () =>
-    NavigationActionsService.navigation.closeDrawer();
+  public static closeDrawer = () => NavigationActionsService.navigation.closeDrawer();
 
   public static push = (screenName: string, passProps = {}) => {
     NavigationActionsService.navigation.navigate(screenName, passProps);
   };
 
   public static setRoot = (screenName: string, passProps = {}) => {
-    NavigationActionsService.navigation.dispatch(
-      StackActions.replace(screenName, passProps),
-    );
+    NavigationActionsService.navigation.dispatch(StackActions.replace(screenName, passProps));
   };
 
   public static pop = () => {
@@ -50,8 +46,7 @@ class NavigationActionsService {
   };
 
   public static hideAlert = () => {
-    const {index, routes} =
-      NavigationActionsService.navigation.dangerouslyGetState();
+    const { index, routes } = NavigationActionsService.navigation.getParent().getState();
     const currentRoute = routes[index].name;
     if (currentRoute === ALERT_POPUP) {
       NavigationActionsService.pop();
@@ -59,9 +54,9 @@ class NavigationActionsService {
   };
 
   public static hideLoading = () => {
-    const {index, routes} =
-      NavigationActionsService.navigation.dangerouslyGetState();
+    const { index, routes } = NavigationActionsService.navigation.getParent().getState();
     const currentRoute = routes[index].name;
+
     if (currentRoute === LOADING_SCREEN) {
       NavigationActionsService.pop();
     }
