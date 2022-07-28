@@ -22,6 +22,12 @@ const styles = StyleSheet.create({
   iconImage: {
     top: 2,
   },
+  viewTabBar: {
+    flexDirection: 'row',
+  },
+  txtIconTabBar: {
+    paddingTop: 10,
+  },
 });
 
 export default styles;

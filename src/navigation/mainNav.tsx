@@ -20,7 +20,7 @@ const MyTabBar = ({ state, descriptors, navigation }: any) => {
   }
 
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={styles.viewTabBar}>
       {state.routes.map((route: any, index: any) => {
         const { options } = descriptors[route.key];
 
@@ -55,7 +55,7 @@ const MyTabBar = ({ state, descriptors, navigation }: any) => {
             style={isFocused ? styles.containerActive : styles.containerInactive}
           >
             <Image source={route.params.iconTab} style={styles.iconImage} />
-            <Text style={{ color: route.params.colorTitle, paddingTop: 10 }}>{label}</Text>
+            <Text style={{ ...styles.txtIconTabBar, color: route.params.colorTitle }}>{label}</Text>
           </TouchableOpacity>
         );
       })}

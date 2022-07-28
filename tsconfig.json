@@ -4,7 +4,6 @@
     "target": "es6",
     "baseUrl": "./src",
     "noImplicitAny": false,
-    "resolveJsonModule": true,
     "paths": {
       "*": ["./src/*"],
       "@constants/*": ["constants/*"],
