@@ -1,0 +1,19 @@
+{
+  "common": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "done": "Done",
+    "settings": "Settings",
+    "save": "Save",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "later": "Later",
+    "refresh": "Refresh",
+    "start": "Tap the screen to get started"
+  }
+}
