@@ -10,11 +10,8 @@ import {
 } from 'react-native';
 
 import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
-import { useDispatch, useSelector } from 'react-redux';
-import { increment } from '../../reducers/BaseReducer';
-import NavigationActionsService from '../../navigation/baseNavigation';
+import NavigationActionsService from '@navigation/baseNavigation';
 import styles from './HomeScreenStyles';
-import { RootState } from '../../store/configureStore';
 
 const Section: React.FC<
   PropsWithChildren<{
@@ -49,9 +46,6 @@ const Section: React.FC<
 };
 
 const App = (props) => {
-  const dispatch = useDispatch();
-  const todoList = useSelector((state: RootState) => state.users.value);
-
   useEffect(() => {
     NavigationActionsService.initInstance(props.navigation);
   }, []);
@@ -71,11 +65,10 @@ const App = (props) => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}
         >
-          <Section title={'Home Screen' + todoList} />
+          <Section title={'Home Screen'} />
         </View>
         <TouchableOpacity
           onPress={() => {
-            dispatch(increment());
             // NavigationActionsService.showLoading();
             // setTimeout(() => {
             //   NavigationActionsService.hideLoading();

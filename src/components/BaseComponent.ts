@@ -1,4 +1,4 @@
-import LoadingScreen from './Loading/Loading';
+import LoadingScreen from './loading/LoadingScreen';
 
 const BaseComponent = {
   LoadingScreen,

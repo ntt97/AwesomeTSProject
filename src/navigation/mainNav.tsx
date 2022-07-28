@@ -3,10 +3,10 @@ import { Image, View, TouchableOpacity, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { BOTTOM_TAB, LOADING_SCREEN } from '@constants/screenKeys';
+import LoadingScreen from '@components/loading/LoadingScreen';
 import { MainFlowScreens, BottomTab } from './initScreen';
 import styles from './styles';
-import { BOTTOM_TAB, LOADING_SCREEN } from '@constants/screenKeys';
-import LoadingScreen from '../components/Loading/Loading';
 
 const Stack = createNativeStackNavigator();
 

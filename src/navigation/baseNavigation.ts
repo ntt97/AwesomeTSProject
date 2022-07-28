@@ -1,6 +1,7 @@
-import { LOADING_SCREEN, ALERT_POPUP } from '../constants/screenKeys';
 import { Keyboard } from 'react-native';
 import { StackActions } from '@react-navigation/native';
+
+import { LOADING_SCREEN, ALERT_POPUP } from '@constants/screenKeys';
 
 class NavigationActionsService {
   private static stackNavigation: any[] = [];

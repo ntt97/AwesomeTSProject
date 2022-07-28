@@ -1,8 +1,15 @@
 import { combineReducers } from 'redux';
 
-export interface RootState {}
+import { INetworkStatus } from '@modules/network/NetworkInterface';
+import NetworkReducer from '@modules/network/NetworkReducer';
 
-const rootState = {};
+export interface RootState {
+  networkStatus: INetworkStatus;
+}
+
+const rootState = {
+  networkStatus: NetworkReducer,
+};
 
 const BaseReducer = combineReducers(rootState);
 

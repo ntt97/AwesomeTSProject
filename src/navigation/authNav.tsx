@@ -1,7 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { LOADING_SCREEN } from '@constants/screenKeys';
-import LoadingScreen from '@components/Loading/Loading';
+import LoadingScreen from '@components/loading/LoadingScreen';
 import { AuthFlowScreens } from './initScreen';
 
 const Stack = createNativeStackNavigator();

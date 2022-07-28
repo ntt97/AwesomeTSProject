@@ -1,20 +1,26 @@
-// prettier-ignore
 {
-  "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
+  "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
     "target": "es6",
     "baseUrl": "./src",
     "noImplicitAny": false,
+    "resolveJsonModule": true,
     "paths": {
       "*": ["./src/*"],
       "@constants/*": ["constants/*"],
-      "@components/*":  ["components/*"],
-      "@navigation/*":  ["navigation/*"],
-      "@screens/*":  ["screens/*"],
-      "@theme/*":  ["theme/*"],
-      "@utils/*":  ["utils/*"],
-      "@store/*":  ["store/*"],
+      "@components/*": ["components/*"],
+      "@navigation/*": ["navigation/*"],
+      "@screens/*": ["screens/*"],
+      "@theme/*": ["theme/*"],
+      "@utils/*": ["utils/*"],
+      "@store/*": ["store/*"],
+      "@modules/*": ["modules/*"],
+      "@reducers/*": ["reducers/*"],
+      "@sagas/*": ["sagas/*"],
+      "@localize/*": ["localize/*"],
+      "@helpers/*": ["helpers/*"],
+      "@service/*": ["service/*"]
     },
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  },
+    "skipLibCheck": true
+  }
 }
