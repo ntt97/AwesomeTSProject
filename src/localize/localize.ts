@@ -5,11 +5,7 @@ import { initReactI18next } from 'react-i18next';
 import id from './languages/id.json';
 import en from './languages/en.json';
 
-const translations = { en, id };
-const { languageTag } = RNLocalize.findBestAvailableLanguage(Object.keys(translations)) || {
-  languageTag: 'en',
-};
-
+const translations = ['en', ' id'];
 const resources = {
   en: {
     translation: en,
@@ -17,6 +13,10 @@ const resources = {
   id: {
     translation: id,
   },
+};
+
+const { languageTag } = RNLocalize.findBestAvailableLanguage(translations) || {
+  languageTag: 'en',
 };
 
 i18n.use(initReactI18next).init({
