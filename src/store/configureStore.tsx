@@ -1,45 +1,50 @@
 import React from 'react';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import { compose, configureStore } from '@reduxjs/toolkit';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { persistReducer, persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import rootSaga from '../sagas/index';
-import BaseReducer from '../reducers/BaseReducer';
+import rootReducer from '../reducers/BaseReducer';
 import Reactotron from '../../ReactotronConfig';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+  whitelist: [],
+  blacklist: [],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 let sagaMiddleware;
 let store;
 
 if (!__DEV__) {
   sagaMiddleware = createSagaMiddleware();
-  store = configureStore({
-    reducer: BaseReducer,
-    middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware);
-    },
-  });
+  store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
 } else {
   const sagaMonitor = Reactotron.createSagaMonitor();
   sagaMiddleware = createSagaMiddleware({ sagaMonitor });
-  const enhancer = compose(sagaMiddleware, Reactotron.createEnhancer());
-  store = configureStore({
-    reducer: BaseReducer,
-    middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware({ thunk: false }).concat(enhancer);
-    },
-  });
+  const enhancer = compose(applyMiddleware(sagaMiddleware), Reactotron.createEnhancer());
+  store = createStore(persistedReducer, enhancer);
 }
+
+const persistor = persistStore(store);
 
 sagaMiddleware.run(rootSaga);
 
 export function reduxProvider(Component: any) {
   return (props: any) => (
     <Provider store={store}>
-      <Component {...props} />
+      <PersistGate persistor={persistor}>
+        <SafeAreaProvider>
+          <Component {...props} />
+        </SafeAreaProvider>
+      </PersistGate>
     </Provider>
   );
 }
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
 export { store };
