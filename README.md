@@ -308,6 +308,27 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+You must sign .apk with keystore, to do this just type in your terminal :  
+> npm run android-signer
+
+The .apk file is located at `react-native-login-screen/android/app/build/outputs/apk/app-release-unsigned.apk`
+
+##  Available Command  
+
+| npm run ... | Description |
+| --- | --- |
+| adb-reverse | Reset port ADB to tcp:8081 |
+| ios-dev| Run iOS project with Simulator set to "iPhone 5" |
+| ios-bundle | Bundle with entry file index.ios.js |
+| ios-build  | Run ios project with “Release” configuration |
+| android-clean | Fix building android if preDexDebug error |
+| android-build-debug | Build android .apk with “Debug” configuration |
+| android-release  | Build android .apk with “Release” configuration  |
+| android-signkey  | Generate keystore android  |
+| android-signer | To sign app-release-unsigned.apk with random keystore |
+| android-dev | Run android development-mode on simulator |
+| android-bundle | Bundle with entry file index.android.js |
+
 ## Wiki
 
 Checkout [wiki](https://github.com/zubairehman/flutter-boilerplate-project/wiki) for more info
