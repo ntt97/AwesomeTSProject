@@ -1,169 +1,125 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@ntt97 
-zubairehman
-/
-flutter-boilerplate-project
-Public template
-Code
-Issues
-16
-Pull requests
-9
-Actions
-Projects
-Wiki
-Security
-Insights
-flutter-boilerplate-project/README.md
-@zubairehman
-zubairehman - implemented DI with get_it
-…
-Latest commit a88a3d9 on Jun 12, 2021
- History
- 5 contributors
-@zubairehman@felipebueno@tradfursten@ptaberg@dhsont
-296 lines (223 sloc)  8.49 KB
+@ntt97
 
-# Boilerplate Project
+# Template RN TS Project
 
-A boilerplate project created in flutter using MobX and Provider. Boilerplate supports both web and mobile, clone the appropriate branches mentioned below:
-
-* For Mobile: https://github.com/zubairehman/flutter-boilerplate-project/tree/master (stable channel)
-* For Web: https://github.com/zubairehman/flutter-boilerplate-project/tree/feature/web-support (beta channel)
+A Template project created in React Native using Redux and Provider.
 
 ## Getting Started
 
-The Boilerplate contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants and required dependencies to create a new project. By using boiler plate code as standard initializer, we can have same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use same code pattern and avoid re-writing from scratch.
+The Template contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants and required dependencies to create a new project. By using boiler plate code as standard initializer, we can have same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use same code pattern and avoid re-writing from scratch.
 
-## How to Use 
+### Prerequisites
+
+There’s a few prerequisites that should be installed on your local environment before install the project such as,
+​
+
+- Node.js > 14 and npm, yarn
+- Watchman
+- Xcode 13
+- Cocoapods 1.10.1
+- JDK > 11
+- Android Studio and Android SDK
+
+## How to Use
 
 **Step 1:**
 
 Download or clone this repo by using the link below:
 
 ```
-https://github.com/zubairehman/flutter-boilerplate-project.git
+https://github.com
 ```
 
 **Step 2:**
 
-Go to project root and execute the following command in console to get the required dependencies: 
+Go to project root and execute the following command in console to get the required dependencies:
 
 ```
-flutter pub get 
-```
-
-**Step 3:**
-
-This project uses `inject` library that works with code generation, execute the following command to generate files:
-
-```
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
-
-or watch command in order to keep the source code synced automatically:
-
-```
-flutter packages pub run build_runner watch
+npm run setup
+npm run run-android-dev
+npm run run-ios-dev
 ```
 
 ## Hide Generated Files
 
-In-order to hide generated files, navigate to `Android Studio` -> `Preferences` -> `Editor` -> `File Types` and paste the below lines under `ignore files and folders` section:
+In Visual Studio Code, navigate to `Visual studio code` -> `My project` -> `.vscode` -> `settings.json` and paste the below lines under `Files:Exclude` section:
 
 ```
-*.inject.summary;*.inject.dart;*.g.dart;
+ **/node_modules": true,
+ ios/Pods": true,
+ ....
 ```
 
-In Visual Studio Code, navigate to `Preferences` -> `Settings` and search for `Files:Exclude`. Add the following patterns:
-```
-**/*.inject.summary
-**/*.inject.dart
-**/*.g.dart
-```
+## Template Features:
 
-## Boilerplate Features:
-
-* Splash
-* Login
-* Home
-* Routing
-* Theme
-* Dio
-* Database
-* MobX (to connect the reactive data of your application with the UI)
-* Provider (State Management)
-* Encryption
-* Validation
-* Code Generation
-* User Notifications
-* Logging
-* Dependency Injection
-* Dark Theme Support (new)
-* Multilingual Support (new)
-* Provider example (new)
+- Splash
+- Login
+- Home
 
 ### Up-Coming Features:
 
-* Connectivity Support
-* Background Fetch Support
+- Add core component
+- Unit test
 
 ### Libraries & Tools Used
 
-* [Dio](https://github.com/flutterchina/dio)
-* [Database](https://github.com/tekartik/sembast.dart)
-* [MobX](https://github.com/mobxjs/mobx.dart) (to connect the reactive data of your application with the UI)
-* [Provider](https://github.com/rrousselGit/provider) (State Management)
-* [Encryption](https://github.com/xxtea/xxtea-dart)
-* [Validation](https://github.com/dart-league/validators)
-* [Logging](https://github.com/zubairehman/Flogs)
-* [Notifications](https://github.com/AndreHaueisen/flushbar)
-* [Json Serialization](https://github.com/dart-lang/json_serializable)
-* [Dependency Injection](https://github.com/fluttercommunity/get_it)
+- [Axios](https://github.com/axios/axios)
+- [React Navigation](https://reactnavigation.org)
+- [Redux](https://redux.js.org/) (to connect the reactive data of your application with the UI)
+- [Redux saga](https://redux-saga.js.org)
+- [Redux-persist](https://github.com/rt2zz/redux-persist)
+- [React-native-fast-image](https://github.com/DylanVann/react-native-fast-image) (component handles image caching)
+- [Formik](https://formik.org/docs/guides/validation)
+- [Notifications](https://github.com/zo0r/react-native-push-notification)
+- [React-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view)
+- [I18n-js next](https://github.com/i18next/next-i18next)
+- [Reactotron](https://github.com/infinitered/reactotron) (Developer Tools show API requests & responses, state redux, console... )
 
 ### Folder Structure
+
 Here is the core folder structure which flutter provides.
 
 ```
-flutter-app/
+react-app/
 |- android
 |- build
 |- ios
-|- lib
+|- src
 |- test
 ```
 
 Here is the folder structure we have been using in this project
 
 ```
-lib/
-|- constants/
-|- data/
-|- stores/
-|- ui/
+src/
+|- assets/
+|- components/
+|- localiz/
+|- modules/
+|- navigaion/
+|- reducer/
+|- sagas/
+|- store/
+|- screens/
+|- hooks/
 |- utils/
-|- widgets/
-|- main.dart
-|- routes.dart
+|- helpers/
+|- storages/
+|- services/
+|- App.tsx
 ```
 
 Now, lets dive into the lib folder which has the main code for the application.
 
 ```
 1- constants - All the application level constants are defined in this directory with-in their respective files. This directory contains the constants for `theme`, `dimentions`, `api endpoints`, `preferences` and `strings`.
-2- data - Contains the data layer of your project, includes directories for local, network and shared pref/cache.
-3- stores - Contains store(s) for state-management of your application, to connect the reactive data of your application with the UI. 
-4- ui — Contains all the ui of your project, contains sub directory for each screen.
-5- util — Contains the utilities/common functions of your application.
-6- widgets — Contains the common widgets for your applications. For example, Button, TextField etc.
-7- routes.dart — This file contains all the routes for your application.
-8- main.dart - This is the starting point of the application. All the application level configurations are defined in this file i.e, theme, routes, title, orientation etc.
+2- modules - Contains the modules layer of your project, includes directories for local, network and shared pref/cache.
+3- stores - Contains store(s) for state-management of your application, to connect the reactive data of your application with the UI.
+4- screens — Contains all the ui of your project, contains sub directory for each screen.
+5- utils — Contains the utilities/common functions of your application.
+6- components — Contains the common widgets for your applications. For example, Button, TextField etc.
+7- navigations — This file contains all the navigation for your application.
+8- App.tsx - This is the starting point of the application. All the application level configurations are defined in this file i.e, theme, navigation, title, orientation etc.
 ```
 
 ### Constants
@@ -172,184 +128,179 @@ This directory contains all the application level constants. A separate file is 
 
 ```
 constants/
-|- app_theme.dart
-|- dimens.dart
-|- endpoints.dart
-|- preferences.dart
-|- strings.dart
+|- colors.ts
+|- images.ts
+|- screenKeys.ts
+|- fonts.dart
+|- globalStyles.ts
 ```
 
-### Data
+### module
 
-All the business logic of your application will go into this directory, it represents the data layer of your application. It is sub-divided into three directories `local`, `network` and `sharedperf`, each containing the domain specific logic. Since each layer exists independently, that makes it easier to unit test. The communication between UI and data layer is handled by using central repository.
+All the business logic of your application will go into this directory, it represents the data layer of your application. It is sub-divided into three directories `atuh`, `network` and `base`, each containing the domain specific logic. Since each layer exists independently, that makes it easier to unit test. The communication between UI and data layer is handled by using central repository.
 
 ```
-data/
-|- local/
-    |- constants/
-    |- datasources/
-    |- app_database.dart
-   
+module/
+|- auth/
+    |- authAction.ts
+    |- authInterface.ts
+    |- authReducer.ts
+    |- authSaga.ts
+    |- authServicer.ts
+
 |- network/
-    |- constants/
-    |- exceptions/
-    |- rest_client.dart
-    
-|- sharedpref
-    |- constants/
-    |- shared_preference_helper.dart
-    
-|- repository.dart
-```
+    |- networkAction.ts
+    |- networkInterface.ts
+    |- networkReducer.ts
 
-### Stores
-
-The store is where all your application state lives in flutter. The Store is basically a widget that stands at the top of the widget tree and passes it's data down using special methods. In-case of multiple stores, a separate folder for each store is created as shown in the example below:
+|- base
+    |- baseAction.ts
+    |- baseReducer.ts
 
 ```
-stores/
-|- login/
-    |- login_store.dart
-    |- form_validator.dart
-```
 
-### UI
+### Screens
 
 This directory contains all the ui of your application. Each screen is located in a separate folder making it easy to combine group of files related to that particular screen. All the screen specific widgets will be placed in `widgets` directory as shown in the example below:
 
 ```
-ui/
+screens/
 |- login
-   |- login_screen.dart
-   |- widgets
-      |- login_form.dart
-      |- login_button.dart
+   |- LoginScreen.tsx
+   |- LoginScreenStyles.ts
+      |- LoginButton.tsx
+      |- LoginButtonStyles.s
 ```
 
 ### Utils
 
-Contains the common file(s) and utilities used in a project. The folder structure is as follows: 
+Contains the common file(s) and utilities used in a project. The folder structure is as follows:
 
 ```
 utils/
 |- encryption
-   |- xxtea.dart
+   |- xxtea.ts
 |- date
-  |- date_time.dart
+  |- dateTime.ts
 ```
 
-### Widgets
+### compnents
 
 Contains the common widgets that are shared across multiple screens. For example, Button, TextField etc.
 
 ```
-widgets/
-|- app_icon_widget.dart
-|- empty_app_bar.dart
-|- progress_indicator.dart
+compnents/
+|- customText
+   |- CustomText.tsx
+   |- CustomTextStyles.ts
+|- customButton
+  |- CustomButton.tsx
+  |- CustomButtonStyles.ts
 ```
 
-### Routes
+### navigation
 
-This file contains all the routes for your application.
+This file contains all the navigation for your application.
 
-```dart
-import 'package:flutter/material.dart';
-import 'ui/home/home.dart';
-import 'ui/login/login.dart';
-import 'ui/splash/splash.dart';
-class Routes {
-  Routes._();
-  //static variables
-  static const String splash = '/splash';
-  static const String login = '/login';
-  static const String home = '/home';
-  static final routes = <String, WidgetBuilder>{
-    splash: (BuildContext context) => SplashScreen(),
-    login: (BuildContext context) => LoginScreen(),
-    home: (BuildContext context) => HomeScreen(),
-  };
-}
+```
+navigation/
+|- authNav.tsx
+|- mainNav.tsx
+|- baseNavigation.ts
+|- initScreen.ts
+
 ```
 
-### Main
+```react-native
+import { HOME_SCREEN, LOADING_SCREEN, LOGIN_SCREEN, SETTING_SCREEN } from '@constants/screenKeys';
+import Colors from '@constants/colors';
+import Images from '@constants/images';
+import SettingScreen from '@screens/setting/SettingScreen';
+import LoginScreen from '@screens/login/LoginScreen';
+import LoadingScreen from '@components/loading/LoadingScreen';
+import HomeScreen from '@screens/home/HomeScreen';
+
+export const MainFlowScreens = {
+  [HOME_SCREEN]: HomeScreen,
+  [SETTING_SCREEN]: SettingScreen,
+};
+
+export const MainFlowModals = {};
+
+export const AuthFlowScreens = {
+  [LOGIN_SCREEN]: LoginScreen,
+  [LOADING_SCREEN]: LoadingScreen,
+};
+
+export const AuthFlowModals = {};
+
+export const BottomTab = [
+  {
+    title: 'Home',
+    component: HomeScreen,
+    iconTab: Images.ICON_SCHEDULE,
+    colorTitle: Colors.RED,
+  },
+  {
+    title: 'Setting',
+    component: SettingScreen,
+    iconTab: Images.ICON_SETTING,
+    colorTitle: Colors.RED,
+  },
+];
+
+
+```
+
+### App
 
 This is the starting point of the application. All the application level configurations are defined in this file i.e, theme, routes, title, orientation etc.
 
-```dart
-import 'package:boilerplate/routes.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'constants/app_theme.dart';
-import 'constants/strings.dart';
-import 'ui/splash/splash.dart';
-void main() {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.landscapeRight,
-    DeviceOrientation.landscapeLeft,
-  ]).then((_) {
-    runApp(MyApp());
-  });
-}
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: Strings.appName,
-      theme: themeData,
-      routes: Routes.routes,
-      home: SplashScreen(),
-    );
-  }
-}
+```react-native
+import React from 'react';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import MainNavigator from '@navigation/mainNav';
+import { reduxProvider } from '@store/configureStore';
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
+  );
+};
+
+export default reduxProvider(App);
 ```
 
-You must sign .apk with keystore, to do this just type in your terminal :  
+You must sign .apk with keystore, to do this just type in your terminal :
+
 > npm run android-signer
 
-The .apk file is located at `react-native-login-screen/android/app/build/outputs/apk/app-release-unsigned.apk`
+The .apk file is located at `../android/app/build/outputs/apk/branch/app-release-unsigned.apk`
 
-##  Available Command  
+## Available Command
 
-| npm run ... | Description |
-| --- | --- |
-| adb-reverse | Reset port ADB to tcp:8081 |
-| ios-dev| Run iOS project with Simulator set to "iPhone 5" |
-| ios-bundle | Bundle with entry file index.ios.js |
-| ios-build  | Run ios project with “Release” configuration |
-| android-clean | Fix building android if preDexDebug error |
-| android-build-debug | Build android .apk with “Debug” configuration |
-| android-release  | Build android .apk with “Release” configuration  |
-| android-signkey  | Generate keystore android  |
-| android-signer | To sign app-release-unsigned.apk with random keystore |
-| android-dev | Run android development-mode on simulator |
-| android-bundle | Bundle with entry file index.android.js |
-
-## Wiki
-
-Checkout [wiki](https://github.com/zubairehman/flutter-boilerplate-project/wiki) for more info
-
-## Conclusion
-
-I will be happy to answer any questions that you may have on this approach, and if you want to lend a hand with the boilerplate then please feel free to submit an issue and/or pull request 🙂
-
-Again to note, this is example can appear as over-architectured for what it is - but it is an example only. If you liked my work, don’t forget to ⭐ star the repo to show your support.
+| npm run ...            | Description                                                     |
+| ---------------------- | --------------------------------------------------------------- |
+| adb-reverse            | Reset port ADB to tcp:8081                                      |
+| setup                  | Install NPM packages                                            |
+| run-ios-dev            | Run iOS project with Simulator set to "iPhone 11" in dev        |
+| run-ios-staging        | Run iOS project with Simulator set to "iPhone 11" in staging    |
+| run-ios-prod           | Run iOS project with Simulator set to "iPhone 11" in production |
+| build-ios-dev          | Build ios .api with “development-mode” configuration            |
+| build-ios-staging      | Build ios .api with “staging-mode” configuration                |
+| build-ios-production   | Build ios .api with “production-mode” configuration             |
+| run-android-dev        | Run Android project with Simulator in dev                       |
+| run-android-staging    | Run Android project with Simulator in staging                   |
+| run-android-production | Run Android project with Simulator in production                |
+| build-android-dev      | Build ios .apk with “dev-mode” configuration                    |
+| build-android-staging  | Build ios .apk with “staging-mode” staging                      |
+| build-android-prod     | Build ios .apk with “production-mode” configuration             |
+| clear-build-android    | Fix building android if preDexDebug error                       |
+| lint                   | check code format                                               |
 
 Footer
 © 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
