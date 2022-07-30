@@ -36,7 +36,7 @@ const Section: React.FC<
   );
 };
 
-const App = () => {
+function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -58,6 +58,6 @@ const App = () => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 export default App;

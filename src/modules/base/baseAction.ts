@@ -1,7 +1,7 @@
 import { IActionResetAllState } from './baseInterface';
 
 enum BaseActionTypes {
-  ['RESET_ALL_STATE'] = 'RESET_ALL_STATE',
+  RESET_ALL_STATE = 'RESET_ALL_STATE',
 }
 
 function resetAllState(): IActionResetAllState {

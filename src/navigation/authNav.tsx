@@ -6,7 +6,7 @@ import LoadingScreen from '@components/loading/LoadingScreen';
 import { AuthFlowScreens } from './initScreen';
 
 const Stack = createNativeStackNavigator();
-const AuthNavigator = () => {
+function AuthNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Group>
@@ -23,6 +23,6 @@ const AuthNavigator = () => {
       </Stack.Group>
     </Stack.Navigator>
   );
-};
+}
 
 export default AuthNavigator;

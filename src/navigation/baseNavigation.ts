@@ -5,8 +5,11 @@ import { LOADING_SCREEN, ALERT_POPUP } from '@constants/screenKeys';
 
 class NavigationActionsService {
   private static stackNavigation: any[] = [];
+
   static navigation: any;
+
   private static instance: NavigationActionsService;
+
   static initInstance(navigation: any): NavigationActionsService {
     if (!NavigationActionsService.instance) {
       NavigationActionsService.instance = new NavigationActionsService();
@@ -32,6 +35,7 @@ class NavigationActionsService {
     Keyboard.dismiss();
     NavigationActionsService.navigation.pop(1);
   };
+
   public static popTo = (screenPosition: number) => {
     Keyboard.dismiss();
     NavigationActionsService.navigation.pop(screenPosition);
